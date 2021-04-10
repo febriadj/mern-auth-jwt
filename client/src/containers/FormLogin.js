@@ -36,10 +36,13 @@ export default function FormLogin() {
       const postLoginJson = postLogin.json()
       const result = await postLoginJson
 
-      localStorage.setItem('token', result.token) // memasukkan token ke localStorage browser
+      // cek apakah token bernilai undefined atau tidak
+      result.token === undefined 
+        ? alert('pengguna tidak ditemukan')
+        : localStorage.setItem('token', result.token) // memasukkan token ke localStorage browser
 
       // menghapus value state userAuth
-      userAuth((prevState) => ({
+      setUserAuth((prevState) => ({
         ...prevState, nameOrEmail: '', password: '' // menghapus value form input
       }))
     }
@@ -54,11 +57,13 @@ export default function FormLogin() {
         name = "nameOrEmail"
         placeholder = "Masukan username atau email"
         onChange = { handleChange }
+        value = { userAuth.nameOrEmail }
       />
       <input 
         name = "password"
         placeholder = "Masukan password"
         onChange = { handleChange }
+        value = { userAuth.password }
       />
       <button type="submit">Login</button>
     </form>
