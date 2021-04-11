@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import { Redirect } from 'react-router-dom'
 
 export default function Dashboard() {
-  const isLoggedIn = localStorage.getItem('token') // mengambil token pada local storage
+  const token = localStorage.getItem('token') // mengambil token pada local storage
   const [userData, setUserData] = useState({}) // state ini untuk menyimpan data pengguna
 
   useEffect(() => {
@@ -11,7 +10,7 @@ export default function Dashboard() {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': 'Bearer ' + isLoggedIn // memberikan token ke server
+          'Authorization': 'Bearer ' + token // memberikan token ke server
         }
       })
       
@@ -20,12 +19,7 @@ export default function Dashboard() {
   
       return setUserData(user)
     })()
-  }, [isLoggedIn])
-  
-  // kondisi jika tidak ada token didalam local storage
-  if (!isLoggedIn) {
-    return <Redirect to="/login" /> //re-redirect kehalaman login
-  }
+  }, [token])
 
   return (
     <div className="dashboard">
