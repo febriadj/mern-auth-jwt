@@ -45,6 +45,8 @@ export default function FormLogin() {
       setUserAuth((prevState) => ({
         ...prevState, nameOrEmail: '', password: '' // menghapus value form input
       }))
+
+      window.location.href = '/' // redirect kehalaman dasboard
     }
     catch(err) {
       console.error(err)
