@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import Logout from '../containers/Logout'
 
 export default function Dashboard() {
   const token = localStorage.getItem('token') // mengambil token pada local storage
@@ -24,6 +25,7 @@ export default function Dashboard() {
   return (
     <div className="dashboard">
       <div className="dashboard-wrap">
+        <Logout />
         <h2 className="username">{ userData.username }</h2>
         <p className="email">{ userData.email }</p>
       </div>
