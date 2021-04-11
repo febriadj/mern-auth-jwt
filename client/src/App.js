@@ -8,14 +8,21 @@ import Login from './pages/Login'
 import Register from './pages/Register'
 
 export default function App() {
+  const isLoggedIn = localStorage.getItem('token') // mengambil token pada local storage
+
   return (
     <Fragment>
       <BrowserRouter>
         <Switch>
           <Route exact path="/login" component={ Login } />
           <Route exact path="/register" component={ Register } />
-          <Route exact path="/" component={ Home } />
-          <Route exact path="/:username" component={ Dashboard } />
+          <Route exact path="/">
+            {
+              // jika todak ada token, tampilkan halaman awal
+              // jika ada, tampilkan halaman dashboard
+              !isLoggedIn ? <Home /> : <Dashboard />
+            }
+          </Route>
         </Switch>
       </BrowserRouter>
     </Fragment>
