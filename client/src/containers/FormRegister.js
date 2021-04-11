@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 export default function FormRegister() {
+  const [message, setMessage] = useState(undefined)
   const [userAuth, setUserAuth] = useState({
     username: '', email: '',
     password: '', confirmPassword: ''
@@ -10,7 +11,38 @@ export default function FormRegister() {
   async function handleChange(event) {
     try {
       const { name, value } = event.target
-      console.log({ name: value })
+
+      setUserAuth((prevState) => ({
+        ...prevState, [name]: value
+      }))
+    }
+    catch(err) {
+      console.error(err)
+    }
+  }
+
+  async function handleSubmit(event) {
+    try {
+      event.preventDefault()
+      const { username, email, password, confirmPassword } = userAuth
+
+      const fetchApi = await fetch('http://localhost:8080/api/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          username, email, password, confirmPassword
+        })
+      })
+
+      const fetchJson = fetchApi.json()
+      const result = await fetchJson
+
+      if (result.code !== 200) {
+        return setMessage(result.message)
+      }
+      
+      window.location.href = '/login'
+      return result
     }
     catch(err) {
       console.error(err)
@@ -18,8 +50,11 @@ export default function FormRegister() {
   }
 
   return (
-    <form className="register-form" method="post">
+    <form className="register-form" method="post" onSubmit={ handleSubmit }>
       <h2 className="title">Buat Akun</h2>
+      {
+        message ? <p className="message">{ message }</p> : null
+      }
       <input 
         name = "username"
         placeholder = "Masukan username"
@@ -46,7 +81,7 @@ export default function FormRegister() {
       />
       <button type="submit">Buat Akun</button>
       <div className="ask">
-        <p>Belum Punya Akun?</p>
+        <p>Sudah Punya Akun?</p>
         <Link to="/login" className="link">Login Disini</Link>
       </div>
     </form>
