@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 export default function FormLogin() {
   const [userAuth, setUserAuth] = useState({
@@ -55,6 +56,7 @@ export default function FormLogin() {
 
   return (
     <form className="login-form" method="post" onSubmit={ handleSubmit }>
+      <h2 className="title">Login</h2>
       <input 
         name = "nameOrEmail"
         placeholder = "Masukan username atau email"
@@ -68,6 +70,10 @@ export default function FormLogin() {
         value = { userAuth.password }
       />
       <button type="submit">Login</button>
+      <div className="ask">
+        <p>Belum Punya Akun?</p>
+        <Link to="/register" className="link">Buat Akun Disini</Link>
+      </div>
     </form>
   )
 }

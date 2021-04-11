@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 export default function FormRegister() {
   const [userAuth, setUserAuth] = useState({
@@ -18,6 +19,7 @@ export default function FormRegister() {
 
   return (
     <form className="register-form" method="post">
+      <h2 className="title">Buat Akun</h2>
       <input 
         name = "username"
         placeholder = "Masukan username"
@@ -42,7 +44,11 @@ export default function FormRegister() {
         onChange = { handleChange }
         value = { userAuth.confirmPassword }
       />
-      <button type="submit">Login</button>
+      <button type="submit">Buat Akun</button>
+      <div className="ask">
+        <p>Belum Punya Akun?</p>
+        <Link to="/login" className="link">Login Disini</Link>
+      </div>
     </form>
   )
 }
