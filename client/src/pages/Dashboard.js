@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import '../layouts/css/main.css'
 import Logout from '../containers/Logout'
 
 export default function Dashboard() {

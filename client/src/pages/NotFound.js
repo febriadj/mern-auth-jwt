@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import '../layouts/css/main.css'
 
 export default function NotFound() {
   useEffect(() => {
