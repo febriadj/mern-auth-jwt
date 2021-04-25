@@ -14,6 +14,9 @@ exports.routerGetUser = async (req, res, next) => {
     })
   }
   catch(err) {
-    console.error(err)
+    res.status(401).json({
+      message: 'pengguna tidak ditemukan',
+      code: 401
+    })
   }
 }
