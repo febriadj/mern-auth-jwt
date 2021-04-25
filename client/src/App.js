@@ -6,6 +6,7 @@ import Home from './pages/Home'
 import Dashboard from './pages/Dashboard'
 import Login from './pages/Login'
 import Register from './pages/Register'
+import NotFound from './pages/NotFound'
 
 export default function App() {
   const isLoggedIn = localStorage.getItem('token') // mengambil token pada local storage
@@ -23,6 +24,7 @@ export default function App() {
               !isLoggedIn ? <Home /> : <Dashboard />
             }
           </Route>
+          <Route exact component={ NotFound } />
         </Switch>
       </BrowserRouter>
     </Fragment>
