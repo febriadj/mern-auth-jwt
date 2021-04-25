@@ -10,13 +10,12 @@ exports.routerLogin = async (req, res, next) => {
     const { nameOrEmail, password } = req.body
     const regexPassword = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]){8,24}/
 
-    // kondisi jika password tidak sesuai dengan regex password
+    // password harus berupa gabungan huruf kecil, besar, angka, dan simbol
     if (regexPassword.test(password) == false) {
-      return res.status(400).json({ // password harus berupa gabungan huruf kecil, besar, angka, dan simbol
-        status: 'login gagal',
-        code: 400,
-        message: 'password tidak valid'
-      })
+      throw { 
+        message: 'password tidak valid',
+        code: 400
+      }
     }
 
     // mengambil data pengguna melalui username atau email dan password
@@ -28,12 +27,9 @@ exports.routerLogin = async (req, res, next) => {
     })
 
     // kondisi jika pengguna tidak ditemukan
-    if (!user) {
-      return res.status(401).json({
-        status: 'login gagal',
-        code: 401,
-        message: 'pengguna tidak ditemukan'
-      })
+    if (!user) throw {
+      message: 'pengguna tidak ditemukan',
+      code: 401
     }
 
     // membuat token jwt
@@ -44,6 +40,9 @@ exports.routerLogin = async (req, res, next) => {
     })
   }
   catch(err) {
-    console.error(err)
+    res.status(err.code).json({
+      message: err.message,
+      code: err.code
+    })
   }
 }
