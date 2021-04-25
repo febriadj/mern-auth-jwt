@@ -18,6 +18,8 @@ export default function Dashboard() {
       const userJson = fetchUser.json() // mengambil data fetch dalam bentuk json
       const user = await userJson // userJson berbentuk promise maka harus di await
   
+      document.title = user.username
+
       return setUserData(user)
     })()
   }, [token])
