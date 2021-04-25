@@ -1,6 +1,5 @@
-# MERN Autentikasi JWT
-Membuat sistem autentikasi menggunakan <i>[jsonwebtoken](https://jwt.io/)</i> pada aplikasi berbasis mern stack (<i>mongo, express, react, node</i>)
-
+## Mern. Autentikasi JWT
+Membuat sistem autentikasi [jsonwebtoken](https://jwt.io/) dan local storage menggunakan stack teknologi mern
 ## Menjalankan Aplikasi
 ~~~js
 C:\Program Files\MongoDB\Server\4.4\bin> mongo
