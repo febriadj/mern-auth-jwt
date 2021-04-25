@@ -37,15 +37,13 @@ export default function FormRegister() {
       const fetchJson = fetchApi.json()
       const result = await fetchJson
 
-      if (result.code !== 200) {
-        return setMessage(result.message)
-      }
+      if (result.code !== 200) throw result.message
       
       window.location.href = '/login'
       return result
     }
     catch(err) {
-      console.error(err)
+      setMessage(err)
     }
   }
 
