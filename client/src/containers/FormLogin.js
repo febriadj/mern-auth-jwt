@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 export default function FormLogin() {
+  const [message, setMessage] = useState(undefined)
   const [userAuth, setUserAuth] = useState({
     nameOrEmail: '',
     password: ''
@@ -37,26 +38,29 @@ export default function FormLogin() {
       const postLoginJson = postLogin.json()
       const result = await postLoginJson
 
-      // cek apakah token bernilai undefined atau tidak
-      result.token === undefined 
-        ? alert('pengguna tidak ditemukan')
-        : localStorage.setItem('token', result.token) // memasukkan token ke localStorage browser
-
       // menghapus value state userAuth
       setUserAuth((prevState) => ({
         ...prevState, nameOrEmail: '', password: '' // menghapus value form input
       }))
 
-      window.location.href = '/' // redirect kehalaman dasboard
+      // cek apakah token bernilai undefined atau tidak
+      if (result.token === undefined) throw result
+
+      localStorage.setItem('token', result.token) // memasukkan token ke localStorage browser
+
+      window.location.href = '/'
     }
     catch(err) {
-      console.error(err)
+      setMessage(err.message)
     }
   }
 
   return (
     <form className="login-form" method="post" onSubmit={ handleSubmit }>
       <h2 className="title">Login</h2>
+      {
+        message ? <p className="message">{ message }</p> : null
+      }
       <input 
         name = "nameOrEmail"
         placeholder = "Masukan username atau email"
