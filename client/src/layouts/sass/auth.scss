@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');
 
-$font-body: 'Roboto', sans-serif;
+$font-body: 'Roboto Mono', monospace;
 
 * { padding: 0; margin: 0; }
 p { line-height: 1.4rem; }
@@ -8,7 +8,7 @@ p { line-height: 1.4rem; }
 body {
   font-family: $font-body;
   font-size: 16px;
-  background: #ecf5ff;
+  background: #fff;
 }
 
 .auth {
@@ -18,27 +18,37 @@ body {
   .auth-wrap {
     margin: 0 40px;
     form {
-      background: #fff;
+      background: #f5f3f4;
       padding: 20px;
       display: grid; grid-template-columns: 1fr;
       width: 300px;
-      border: 1px solid #96839c;
       .title {
-        margin: 0 0 40px 0;
+        margin: 0 0 20px 0;
+      }
+      .message {
+        margin: 0 0 20px 0;
+        font-size: 0.8rem;
       }
       input {
         padding: 15px;
-        outline: none;
-        border: 1px solid #96839c;
+        background-color: #fff;
+        outline: none; border: none;
         border-radius: 0;
         margin: 0 0 10px 0;
         font-family: $font-body;
       }
+      input:-webkit-autofill {
+        transition: background-color 5000s ease-in-out 0s;
+        -webkit-text-fill-color: #000 !important;
+      }
+      input::-webkit-input-placeholder {
+        color: #181818e0;
+      }
       button {
         font-family: $font-body;
+        background-color: #b1a7a6;
         padding: 15px;
-        outline: none;
-        border: 1px solid #96839c;
+        outline: none; border: none;
         border-radius: 0;
         margin: 20px 0 40px 0;
       }
