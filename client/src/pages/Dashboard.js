@@ -8,7 +8,7 @@ export default function Dashboard() {
 
   useEffect(() => {
     (async function fetchData() {
-      const fetchUser = await fetch('http://localhost:8080/api/user', {
+      const fetchUser = await fetch('/api/user', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
