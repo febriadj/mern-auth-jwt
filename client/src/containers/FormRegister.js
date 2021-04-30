@@ -26,7 +26,7 @@ export default function FormRegister() {
       event.preventDefault()
       const { username, email, password, confirmPassword } = userAuth
 
-      const fetchApi = await fetch('http://localhost:8080/api/register', {
+      const fetchApi = await fetch('/api/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

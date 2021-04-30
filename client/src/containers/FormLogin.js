@@ -28,7 +28,7 @@ export default function FormLogin() {
       const { nameOrEmail, password } = userAuth
 
       // mengirim body request ke server
-      const postLogin = await fetch('http://localhost:8080/api/login', {
+      const postLogin = await fetch('/api/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ nameOrEmail, password })
