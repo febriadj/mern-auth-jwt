@@ -8,7 +8,7 @@
     "install-client": "cd client && npm install",
     "build": "cd client && npm run build",
     "heroku-postbuild": "npm run install-client && npm run build",
-    "start:dev": "nodemon server.js --unhandled-rejections=strict"
+    "start:dev": "nodemon server.js"
   },
   "repository": {
     "type": "git",
