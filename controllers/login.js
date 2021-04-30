@@ -33,7 +33,7 @@ exports.routerLogin = async (req, res, next) => {
     }
 
     // membuat token jwt
-    await jwt.sign({ user_id: user._id }, token, (err, token) => {
+    jwt.sign({ user_id: user._id }, token, (err, token) => {
       if (err) throw err
 
       res.status(200).json({ token }) // mengirim token ke client
