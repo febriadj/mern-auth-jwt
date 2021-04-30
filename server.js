@@ -17,12 +17,11 @@ app.use(express.json())
 
 app.use('/api', require('./routes/index')) // semua rute program
 
-
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'))
   
   app.get('*', (req, res, next) => {
-    res.sendFile(path.join(__dirname, '/client', '/build', 'index.html'))
+    res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'))
   })
 }
 
