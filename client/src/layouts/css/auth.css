@@ -1,0 +1,76 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+}
+
+p {
+  line-height: 1.4rem;
+}
+
+body {
+  font-family: "Roboto Mono", monospace;
+  font-size: 16px;
+  background: #fff;
+}
+
+.auth {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.auth .auth-wrap {
+  margin: 0 40px;
+}
+.auth .auth-wrap form {
+  background: #f5f3f4;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr;
+  width: 300px;
+}
+.auth .auth-wrap form .title {
+  margin: 0 0 20px 0;
+}
+.auth .auth-wrap form .message {
+  margin: 0 0 20px 0;
+  font-size: 0.8rem;
+}
+.auth .auth-wrap form input {
+  padding: 15px;
+  background-color: #fff;
+  outline: none;
+  border: none;
+  border-radius: 0;
+  margin: 0 0 10px 0;
+  font-family: "Roboto Mono", monospace;
+}
+.auth .auth-wrap form input:-webkit-autofill {
+  transition: background-color 5000s ease-in-out 0s;
+  -webkit-text-fill-color: #000 !important;
+}
+.auth .auth-wrap form input::-webkit-input-placeholder {
+  color: #181818e0;
+}
+.auth .auth-wrap form button {
+  font-family: "Roboto Mono", monospace;
+  background-color: #b1a7a6;
+  padding: 15px;
+  outline: none;
+  border: none;
+  border-radius: 0;
+  margin: 20px 0 40px 0;
+}
+.auth .auth-wrap form .ask {
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+}
+.auth .auth-wrap form .ask .link {
+  margin: 0 0 0 10px;
+}
+
+/*# sourceMappingURL=auth.css.map */
