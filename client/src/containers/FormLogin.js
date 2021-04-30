@@ -62,12 +62,14 @@ export default function FormLogin() {
         message ? <p className="message">{ message }</p> : null
       }
       <input 
+        type = "text"
         name = "nameOrEmail"
         placeholder = "Masukan username atau email"
         onChange = { handleChange }
         value = { userAuth.nameOrEmail }
       />
       <input 
+        type = "password"
         name = "password"
         placeholder = "Masukan password"
         onChange = { handleChange }

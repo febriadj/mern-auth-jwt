@@ -54,24 +54,28 @@ export default function FormRegister() {
         message ? <p className="message">{ message }</p> : null
       }
       <input 
+        type = "text"
         name = "username"
         placeholder = "Masukan username"
         onChange = { handleChange }
         value = { userAuth.username }
       />
       <input 
+        type = "text"
         name = "email"
         placeholder = "Masukan email"
         onChange = { handleChange }
         value = { userAuth.email }
       />
       <input 
+        type = "password"
         name = "password"
         placeholder = "Masukan password"
         onChange = { handleChange }
         value = { userAuth.password }
       />
       <input 
+        type = "password"
         name = "confirmPassword"
         placeholder = "Masukan password sekali lagi"
         onChange = { handleChange }
