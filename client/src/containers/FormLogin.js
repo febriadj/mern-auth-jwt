@@ -67,6 +67,7 @@ export default function FormLogin() {
         placeholder = "Masukan username atau email"
         onChange = { handleChange }
         value = { userAuth.nameOrEmail }
+        required
       />
       <input 
         type = "password"
@@ -74,6 +75,7 @@ export default function FormLogin() {
         placeholder = "Masukan password"
         onChange = { handleChange }
         value = { userAuth.password }
+        required
       />
       <button type="submit">Login</button>
       <div className="ask">

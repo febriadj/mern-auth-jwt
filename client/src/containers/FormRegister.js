@@ -59,6 +59,7 @@ export default function FormRegister() {
         placeholder = "Masukan username"
         onChange = { handleChange }
         value = { userAuth.username }
+        required
       />
       <input 
         type = "text"
@@ -66,6 +67,7 @@ export default function FormRegister() {
         placeholder = "Masukan email"
         onChange = { handleChange }
         value = { userAuth.email }
+        required
       />
       <input 
         type = "password"
@@ -73,6 +75,7 @@ export default function FormRegister() {
         placeholder = "Masukan password"
         onChange = { handleChange }
         value = { userAuth.password }
+        required
       />
       <input 
         type = "password"
@@ -80,6 +83,7 @@ export default function FormRegister() {
         placeholder = "Masukan password sekali lagi"
         onChange = { handleChange }
         value = { userAuth.confirmPassword }
+        required
       />
       <button type="submit">Buat Akun</button>
       <div className="ask">
