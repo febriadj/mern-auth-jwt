@@ -1,14 +1,20 @@
-## Mern. Autentikasi JWT
-Membuat sistem autentikasi [jsonwebtoken](https://jwt.io/) dan local storage menggunakan stack teknologi mern
-## Menjalankan Aplikasi
+## MERN Autentikasi JWT
+Membuat sistem autentikasi [jsonwebtoken](https://jwt.io/) dan local storage menggunakan stack teknologi mern.
+
+Website: [https://febri-authmern.herokuapp.com](https://febri-authmern.herokuapp.com)
+
+## Pengembangan
 ~~~js
 C:\Program Files\MongoDB\Server\4.4\bin> mongo
 
 > use projects // membuat database projects
 ~~~
 ~~~js
-npm install // menginstall seluruh dependencies
+// sisi server
+npm install // install seluruh dependencies
+npm run start:dev // menjalankan server
 
-npm start // menjalankan aplikasi
-npm run start:dev // untuk melakukan pengembangan
+// sisi client
+npm install // install seluruh dependencies
+npm start // menjalankan aplikasi react
 ~~~
