@@ -6,7 +6,7 @@ const
 , dotenv = require('dotenv')
 , cors = require('cors')
 , path = require('path')
-, port = process.env.PORT || 8080
+, port = process.env.PORT || 8000
 
 dotenv.config({ path: './.env' }) // konfigurasi .env file
 app.use(cors()) // membuka akses cors
